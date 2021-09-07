@@ -1,0 +1,549 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo&display=swap");
+
+:root {
+  --main-color: #f9ca24;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.3s linear;
+}
+
+*::selection {
+  background: var(--main-color);
+  color: #1a1a1a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  width: 0.9rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #222;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  background: #111;
+  padding-left: 20rem;
+}
+
+ul {
+  list-style: none;
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  text-align: center;
+  z-index: 10000;
+  transition: all 0.5s;
+}
+
+aside .user {
+  padding: 50px 0;
+}
+
+aside .user img {
+  width: 200px;
+  border: 5px solid var(--main-color);
+  border-radius: 50%;
+}
+
+aside .user h2 {
+  color: #fff;
+  margin: 10px 0;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+aside .user p {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+aside nav ul {
+  padding: 0 1rem;
+}
+aside nav ul li {
+  margin: 15px 0;
+}
+aside nav ul li a {
+  display: block;
+  padding: 0.5rem;
+  background-color: #333;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 5rem;
+  letter-spacing: 1px;
+  transition: all 0.5s;
+}
+
+aside nav ul li a:hover {
+  background-color: var(--main-color);
+  color: #1a1a1a;
+  font-weight: bold;
+}
+
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  background-color: #333;
+  border-radius: 4px;
+  cursor: pointer;
+  display: none;
+  z-index: 10001;
+}
+
+.menu-toggle i {
+  font-size: 25px;
+  color: #fff;
+  line-height: 50px;
+}
+
+@media (max-width: 992px) {
+  body {
+    padding: 0;
+  }
+  aside {
+    left: -300px;
+  }
+  aside.active {
+    left: 0;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  aside .user {
+    padding: 50px 10px 35px;
+  }
+  aside nav ul li a {
+    padding: 0.4rem;
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+}
+
+/************************ Home Section ************************/
+.home {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 8rem; /**/
+  color: #fff; /**/
+  min-height: 100vh; /**/
+}
+
+.home h3 {
+  font-size: 25px;
+}
+
+.home h2 {
+  margin: 10px 0;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+
+.home h2 span {
+  color: var(--main-color);
+  position: relative;
+  overflow: hidden;
+  animation: typing 5s steps(11) infinite;
+  display: block;
+  width: fit-content;
+}
+
+@keyframes typing {
+  0%,
+  90%,
+  100% {
+    width: 0;
+  }
+  30%,
+  60% {
+    width: 242.92px;
+  }
+}
+
+.home h2 span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 75%;
+  background-color: var(--main-color);
+  animation: cursor 0.8s steps(3) infinite;
+}
+
+@keyframes cursor {
+  0%,
+  75% {
+    opacity: 1;
+  }
+  76%,
+  100% {
+    opacity: 0;
+  }
+}
+.home p {
+  line-height: 2;
+}
+
+.home a,
+.about a,
+.conatct form button {
+  display: block;
+  width: fit-content;
+  margin-top: 20px;
+  padding: 8px 30px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5rem;
+  transition: all 0.5s;
+}
+
+.home a i,
+.about a i,
+.conatct form button i {
+  margin-right: 5px;
+}
+
+.home a:hover,
+.about a:hover,
+.conatct form button:hover {
+  background-color: var(--main-color);
+  color: #1a1a1a;
+  font-weight: bold;
+}
+
+@media (max-width: 992px) {
+  .home {
+    padding: 0 4rem; /**/
+  }
+  .home h2 span {
+    display: block;
+  }
+}
+
+/************************ About Section ************************/
+.about,
+.education,
+.portfolio,
+.conatct {
+  min-height: 100vh;
+  padding: 0 8rem; /**/
+  color: #fff; /**/
+  min-height: 100vh; /**/
+}
+
+.about span,
+.education span,
+.portfolio span,
+.conatct span {
+  color: var(--main-color);
+}
+
+.about .title,
+.education .title,
+.portfolio .title,
+.conatct .title {
+  padding: 15px 0;
+  text-align: center;
+  font-size: 40px;
+  border-bottom: 1px solid #333;
+  margin-bottom: 50px;
+}
+
+.about p {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  line-height: 2;
+}
+
+.about p span {
+  font-weight: normal;
+  letter-spacing: 0;
+}
+
+.about .details,
+.education .education-content,
+.portfolio .portfolio-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 60px;
+}
+
+.about .details .details-item {
+  background-color: #1a1a1a;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.about .details .details-item h2 {
+  color: var(--main-color);
+  font-size: 35px;
+}
+
+@media (max-width: 992px) {
+  .about {
+    padding: 0 4rem; /**/
+  }
+}
+
+/************************ Education Section ************************/
+.education .education-content {
+  row-gap: 50px;
+  margin-top: 100px;
+}
+
+.education .education-item {
+  border-left: 3px solid #333;
+  padding-left: 30px;
+  position: relative;
+}
+
+.education .education-item::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f19d";
+  position: absolute;
+  top: 0;
+  left: -22px;
+  background-color: var(--main-color);
+  color: #1a1a1a;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.education .education-item .years {
+  color: var(--main-color);
+  background-color: #1a1a1a;
+  width: fit-content;
+  padding: 0 20px;
+  border-radius: 5rem;
+}
+
+@media (max-width: 992px) {
+  .education {
+    padding: 0 4rem; /**/
+  }
+}
+
+/************************ Portfolio Section ************************/
+.portfolio .portfolio-content {
+  margin-top: 40px;
+}
+
+.portfolio-content .portfolio-item {
+  width: 100%;
+  overflow: hidden;
+}
+
+.portfolio-item img {
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.2);
+}
+
+/*Create Modal*/
+.modal-content {
+  position: fixed;
+  top: 15%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /**/
+  transform: scale(0); /**/
+  transition: 0.8s; /**/
+}
+
+.modal-content .modal {
+  position: relative;
+  width: 80%;
+}
+
+.modal .close {
+  position: absolute;
+  top: 55px;
+  right: -10px;
+  width: 40px;
+  height: 40px;
+  line-height: 35px;
+  text-align: center;
+  background: #fff;
+  border-radius: 50%;
+  font-size: 40px;
+  font-weight: bold;
+  color: #ccc;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.modal .close:hover {
+  color: #fff;
+  background: #f00;
+}
+
+.modal img.modal-img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.modal .caption {
+  margin: 15px 0;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+  .portfolio {
+    padding: 0 4rem; /**/
+  }
+  .modal-content {
+    top: 25%;
+    left: 10%;
+  }
+  .modal-content .modal {
+    width: 90%;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9; /**/
+  opacity: 0; /**/
+  pointer-events: none; /**/
+  transition: 0.5s ease-in-out; /**/
+}
+
+/************************ Conatct Section ************************/
+.conatct-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 100px;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-info .head-title {
+  color: var(--main-color);
+  font-size: 25px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.contact-info h3 {
+  margin: 10px 0;
+}
+
+.contact-info h3 i {
+  color: var(--main-color);
+  width: 30px;
+  font-size: 20px;
+}
+.contact-info h3 a {
+  color: #fff;
+}
+
+.conatct form {
+  flex: 1;
+}
+.conatct form input,
+.conatct form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-size: 15px;
+}
+.conatct form input {
+  display: block;
+  height: 50px;
+}
+
+.conatct form textarea {
+  height: 150px;
+  resize: none;
+}
+
+.conatct form input:focus::-webkit-input-placeholder,
+.conatct form textarea:focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.conatct form input:focus,
+.conatct form textarea:focus {
+  border: 1px solid var(--main-color);
+}
+
+.conatct form button {
+  margin-top: 0;
+  padding: 12px 40px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.conatct .footer {
+  text-align: center;
+  margin-top: 170px;
+  font-size: 20px;
+}
+
+@media (max-width: 1200px) {
+  .conatct {
+    padding: 0 3rem; /**/
+  }
+  .conatct .contact-info {
+    flex-basis: 100%;
+  }
+  .conatct form {
+    flex-basis: 100%;
+    margin-top: 50px;
+  }
+  .conatct .footer {
+    margin-top: 100px;
+    margin-bottom: 20px;
+  }
+}
